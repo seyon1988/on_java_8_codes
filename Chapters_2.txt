@@ -1,0 +1,137 @@
+ Introduction
+ WhatisanObject?
+ InstallingJavaandtheBookExamples
+ ObjectsEverywhere
+ Operators
+ ControlFlow
+ Housekeeping
+ ImplementationHiding
+ Reuse
+ Polymorphism
+ Interfaces
+ InnerClasses
+ Collections
+ FunctionalProgramming
+ Streams
+ Exceptions
+ ValidatingYourCode
+ Files
+ Strings
+ Reflection
+ Generics
+ Arrays
+ Enumerations
+ Annotations
+ ConcurrentProgramming
+ Patterns
+ ThePatternConcept . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1259
+ Singleton . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1261
+ ClassifyingPatterns . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1266
+ TemplateMethod. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1267
+ FrontingforanImplementation . . . . . . . . . . . . . . . . . . . . . . . . . . 1269
+ Factories:EncapsulatingObjectCreation . . . . . . . . . . . . . . . . . . . . 1277
+ FunctionObjects . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1287
+ ChangingtheInterface . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1295
+ Interpreter:Run-TimeFlexibility . . . . . . . . . . . . . . . . . . . . . . . . . 1299
+ Callbacks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1300
+ MultipleDispatching . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1308
+ PatternRefactoring. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1314
+ Summary. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1352
+ Appendix:Supplements . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1354
+ OnJava8ExampleCode . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1354
+ ThinkinginC:FoundationsforJava . . . . . . . . . . . . . . . . . . . . . . . 1354
+ Hands-OnJavaeSeminar . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1354
+ Appendix:ProgrammingGuidelines. . . . . . . . . . . . . . . . . . . . . . . . .1355
+ OnJava8(www.OnJava8.com)byBruceEckel©2021MindViewLLC
+CONTENTS
+ Design . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1355
+ Implementation. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1361
+ Appendix:Javadoc . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1367
+ Syntax . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1367
+ EmbeddedHTML . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1368
+ SomeExampleTags . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1369
+ DocumentationExample . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1372
+ Appendix:PassingandReturningObjects . . . . . . . . . . . . . . . . . . . . .1374
+ PassingReferences . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1374
+ MakingLocalCopies. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1378
+ ControllingCloneability . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1397
+ ImmutableClasses . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1409
+ Summary. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1419
+ Appendix:I/OStreams. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1421
+ TypesofInputStream . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1422
+ TypesofOutputStream . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1424
+ AddingAttributesandUsefulInterfaces . . . . . . . . . . . . . . . . . . . . . 1426
+ Readers&Writers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1429
+ OffByItself:RandomAccessFile. . . . . . . . . . . . . . . . . . . . . . . . . 1433
+ TypicalUsesofI/OStreams . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1434
+ Summary. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1444
+ Appendix:StandardI/O. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1445
+ ReadingfromStandardInput . . . . . . . . . . . . . . . . . . . . . . . . . . . 1445
+ ChangingSystem.outtoaPrintWriter. . . . . . . . . . . . . . . . . . . . 1446
+ RedirectingStandardI/O . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1447
+ ProcessControl . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1449
+ Appendix:NewI/O. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1452
+ ByteBuffers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1452
+ ConvertingData . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1457
+ FetchingPrimitives. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1461
+ ViewBuffers. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1463
+ DataManipulationwithBuffers . . . . . . . . . . . . . . . . . . . . . . . . . . 1468
+ OnJava8(www.OnJava8.com)byBruceEckel©2021MindViewLLC
+CONTENTS
+ Memory-MappedFiles. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1473
+ FileLocking . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1478
+ Appendix:Understandingequals()andhashCode(). . . . . . . . . . . . . .1483
+ ACanonicalequals() . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1483
+ HashingandHashCodes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1494
+ TuningaHashMap . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1512
+ Appendix:CollectionTopics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1514
+ SampleData . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1514
+ ListBehavior. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1523
+ SetBehavior . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1527
+ UsingFunctionalOperationswithanyMap . . . . . . . . . . . . . . . . . . . 1530
+ SelectingPartsofaMap . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1532
+ FillingCollections . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1534
+ CustomCollectionandMapusingFlyweight . . . . . . . . . . . . . . . . . 1541
+ CollectionFunctionality . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1554
+ OptionalOperations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1560
+ SetsandStorageOrder . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1564
+ Queues . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1570
+ UnderstandingMaps . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1574
+ Utilities . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1583
+ HoldingReferences. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1593
+ Java1.0/1.1Collections . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1599
+ Summary. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1605
+ Appendix:Low-LevelConcurrency . . . . . . . . . . . . . . . . . . . . . . . . .1607
+ WhatisaThread? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1607
+ CatchingExceptions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1613
+ SharingResources . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1618
+ ThevolatileKeyword. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1627
+ Atomicity . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1631
+ CriticalSections. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1642
+ LibraryComponents . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1650
+ Summary. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1660
+ Appendix:DataCompression . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1661
+ OnJava8(www.OnJava8.com)byBruceEckel©2021MindViewLLC
+CONTENTS
+ SimpleCompressionwithGZIP . . . . . . . . . . . . . . . . . . . . . . . . . . 1662
+ MultifileStoragewithZip . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1663
+ JavaArchives(Jars) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1666
+ Appendix:ObjectSerialization . . . . . . . . . . . . . . . . . . . . . . . . . . . .1669
+ FindingtheClass . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1674
+ ControllingSerialization . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1675
+ UsingPersistence . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1686
+ Appendix:BenefitsandCostsofStaticTypeChecking . . . . . . . . . . . . .1699
+ Forewordtothe2021Edition. . . . . . . . . . . . . . . . . . . . . . . . . . . . 1699
+ ForewordtotheOriginalEdition . . . . . . . . . . . . . . . . . . . . . . . . . 1700
+ StaticTypeCheckingvs.Testing . . . . . . . . . . . . . . . . . . . . . . . . . 1701
+ HowtoArgueaboutTyping . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1710
+ TheCostofProductivity . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1727
+ Staticvs.Dynamic . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1731
+ Appendix:ThePositiveLegacyofC++andJava . . . . . . . . . . . . . . . . .1739
+ Appendix:BecomingaProgrammer . . . . . . . . . . . . . . . . . . . . . . . . .1742
+ HowIGotStartedinProgramming. . . . . . . . . . . . . . . . . . . . . . . . 1742
+ ACareerinComputing . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1744
+ TheMythical5% . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1748
+ WritingSoftwareIsLike…Writing. . . . . . . . . . . . . . . . . . . . . . . . 1753
+ ProgrammingasTyping. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1756
+ DoWhatYouLove . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1761
